@@ -1,0 +1,32 @@
+version: '3'
+services:
+  web:
+    image: your-python-app-image:latest
+    container_name: postgres
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres:123@db:5432/postgres
+      - SECRET_KEY=@2hn-1@$*0qes==o6+5wtmq$eh+s(*=g_a6d=4t#-a1p!=(uln
+      - ALGORITHM=HS256
+    networks:
+      - app-network
+
+  db:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+networks:
+  app-network:

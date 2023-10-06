@@ -1,0 +1,11 @@
+fastapi==0.68.0
+uvicorn==0.15.0
+SQLAlchemy==1.4.23
+psycopg2==2.9.1
+python-jose==3.3.0
+passlib==1.7.5
+PyJWT==2.1.0
+cloudinary==1.25.0
+fastapi-cors==0.6.0
+pydantic==1.8.2
+alembic==1.7.3
